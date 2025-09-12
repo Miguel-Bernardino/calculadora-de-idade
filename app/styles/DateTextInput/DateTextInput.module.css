@@ -1,0 +1,93 @@
+.input-text {
+
+    display: flex;
+    align-items: center;
+
+    font-family: 'Poppins-Bold';
+    font-size: 2vw;
+
+    padding-left: 2vw;
+    width: 12vw;
+    height: 5vw;
+    
+    border: 0.1vw solid hsl(0, 0%, 86%);
+    border-radius: 0.8vw;
+
+    outline: none;
+}
+
+.input-text::placeholder {
+    font-size: 2vw;
+}
+
+.input-text:focus{
+
+    border-color: hsl(259, 100%, 40%);
+    /*border-color: hsl(259, 100%, 65%);*/
+
+}
+
+.label-text {
+  font-family: 'Poppins-Bold', sans-serif;   /* font-[Poppins-Bold] */
+  letter-spacing: 0.2rem;                    /* tracking-[0.2rem] */
+  font-size: 1.2vw;                          /* text-[1.2vw] */
+  color: hsl(0, 1%, 44%);                    /* text-[hsl(0,1%,44%)] */
+}
+
+.error-msg{
+
+    font-family: 'Poppins-Italic';
+    color: hsl(0, 100%, 67%);
+    
+}
+
+@media (max-width: 767px) {
+
+    .input-text{
+
+        font-size: 5vw;
+        
+        padding-left: 3vw;
+        width: 25vw;
+        height: 13.5vw;
+
+        border-radius: 2vw;
+        
+    }
+
+    .input-text::placeholder {
+        font-size: 5vw;
+    }
+
+    .label-text{
+        font-size: 3vw; 
+
+    }
+    .error-msg{
+        font-size: 0.7rem;
+    }
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .input-text{
+
+        font-size: 3vw;
+
+        width: 20vw;
+        height: 7vw;
+        
+    }
+
+    .input-text::placeholder {
+        font-size: 3vw;
+    }
+
+    .label {
+
+        font-size: 1.6vw;
+    
+    }
+
+}

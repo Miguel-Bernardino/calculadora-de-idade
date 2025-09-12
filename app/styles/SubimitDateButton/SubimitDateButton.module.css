@@ -1,0 +1,104 @@
+
+.label-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6vw;
+    height: 6vw;
+    padding: 1.5vw;
+    background-color: hsl(259, 100%, 65%);
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.label-button:hover{
+
+    background-color: black;
+
+}
+
+svg {
+
+    width: 3vw;
+
+}
+
+.divisor-line {
+  
+    width: 50vw;                            /* w-[30vw] → 30% da largura da viewport */
+
+    border-top-width: 2px;                  /* border-t-2 → borda superior de 2px */
+    border-top-color: hsl(0, 0%, 86%);    /* border-[hsl(0,0%,86%)] → cor da borda */
+    border-top-style: solid;                /* necessário para a borda aparecer */
+}
+
+@media (max-width: 767px) {
+
+    .divisor-line {
+
+        width: 35vw; 
+        border-top-width: 1.5px;
+
+    }
+
+    .label-button{
+
+        width: 14vw;
+        height: 14vw;
+
+    }
+
+    svg {
+
+        width: 7vw;
+
+    }
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    .divisor-line {
+
+        width: 30vw; 
+        border-top-width: 1.5px;
+
+    }
+
+    .label-button{
+
+        width: 8vw;
+        height: 8vw;
+
+    }
+
+    svg {
+
+        width: 4vw;
+
+    }
+
+}
+
+@media (min-width: 1023px) and (max-width: 1439px) {
+
+    .divisor-line {
+
+        width: 50vw; 
+
+    }
+
+    .label-button{
+
+        width: 7vw;
+        height: 7vw;
+
+    }
+
+    svg {
+
+        width: 3.5vw;
+
+    }
+
+}

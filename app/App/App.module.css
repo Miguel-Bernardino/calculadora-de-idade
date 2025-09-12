@@ -1,0 +1,34 @@
+.footer{
+
+  display: inline;
+  flex-direction: column;
+}
+
+#container {
+
+  padding: 3vw;
+}
+
+#main{}
+
+@media (max-width: 767px) {
+
+  #container {
+
+    padding: 5vw;
+
+    margin: 0 10vw;
+
+  }  
+
+}
+
+@media (orientation: landscape) {
+
+  #container {
+
+    margin: 4vw 0;
+
+  }    
+
+}

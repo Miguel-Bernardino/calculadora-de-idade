@@ -1,0 +1,43 @@
+
+.text-container{
+
+    height: 7vw;
+    user-select: none;
+}
+
+.text {
+
+    font-family: 'Poppins-ExtraBoldItalic';
+    font-size: 6vw;
+
+}
+
+@media (max-width: 767px) {
+
+    .text-container{
+
+        height: 15vw;
+    
+    }
+
+
+    .text{
+
+        font-size: 14vw;
+
+    }
+
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 768px) and (max-width: 1023px) {
+
+
+
+}
+
+@media (min-width: 1023px) and (max-width: 1439px) {
+
+
+
+}
