@@ -16,7 +16,7 @@ function App() {
   const formContainerRef = useRef<HTMLDivElement | null>(null);
 
   // Novo estado para o aspect ratio, que será atualizado junto com o windowSize
-  const [aspectRatio, setAspectRatio] = useState(window.innerWidth / window.innerHeight);
+  const [aspectRatio, setAspectRatio] = useState(0);
 
   useEffect(() => {
     const updateScreenSize = () => {
