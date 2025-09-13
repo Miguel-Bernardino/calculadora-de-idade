@@ -66,11 +66,6 @@ function App() {
   useEffect(() => {
     if(!isLandScape || aspectRatio === 0) return;
     let hasValidLandscape: boolean = isLandScape && aspectRatio > 1.3;
-    console.log("Atualizando altura...");
-    console.log("formContainerSize.height:", formContainerSize.height);
-    console.log("hasValidLandscape:", hasValidLandscape);
-    console.log("isMobile:", isMobile);
-    console.log("isTablet:", isTablet);
     if (!mainContainer.current || formContainerSize.height === 0 ) return;
 
     let novaAltura = "100vh";
