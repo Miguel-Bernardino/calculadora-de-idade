@@ -4,13 +4,13 @@
   display: block;
   flex-direction: column;
 
-  padding-top: 0.75rem;
+  padding-top: 1vh;
 
 }
 
 #container {
 
-  padding: 3vw;
+  padding: clamp(1vw, 3vw, 3vw);
 
 }
 
@@ -18,7 +18,7 @@
 
   #container {
 
-    padding: 5vw;
+    padding: 6vh 5vw;
 
     margin: 0 10vw;
 
@@ -30,7 +30,8 @@
 
   #container {
 
-    padding: 5vw;
+    padding: 12vh 3vw;
+
     margin: 4vw 0;
 
   }    

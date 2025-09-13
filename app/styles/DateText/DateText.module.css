@@ -1,7 +1,7 @@
 
 .text-container{
 
-    height: 7vw;
+    height: clamp(1vh, 9vw, 10vh);
     user-select: none;
 
 }
@@ -9,7 +9,7 @@
 .text {
 
     font-family: 'Poppins-ExtraBoldItalic';
-    font-size: 6vw;
+    font-size: clamp(1vh, 7vw, 10vh);
 
 }
 
@@ -17,42 +17,28 @@
 
     .text-container{
 
-        height: 15vw;
+        height: clamp(3vh, 11vw, 50vh);
     
     }
 
 
     .text{
 
-        font-size: 14vw;
+        font-size: clamp(1vh, 12vw, 100vh);
 
     }
 
 }
 
-/* Medium devices (tablets) */
-@media (min-width: 768px) and (max-width: 1023px) {
-
-
-
-}
-
-@media (min-width: 1023px) and (max-width: 1439px) {
-
-
-
-}
-
-@media(orientation: landscape){
+@media only screen and (orientation: landscape ) and (max-width: 1023px){
     .text-container{
 
-        height: 10vw;
-        user-select: none;
+        height: clamp(15vh, 12vw, 50vh);
     }
 
     .text {
 
-        font-size: 10vw;
+        font-size: clamp(1vh, 12vw, 100vh);
 
     }
 }

@@ -8,7 +8,7 @@
 
     padding-left: 2vw;
     width: 12vw;
-    height: 5vw;
+    height: clamp(3vh,5vw,10vh);
     
     border: 0.1vw solid hsl(0, 0%, 86%);
     border-radius: 0.8vw;
