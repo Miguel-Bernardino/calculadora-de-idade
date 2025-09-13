@@ -18,10 +18,7 @@ const SubimitDateButtonDesktop: React.FC<SubimitDateButtonProps> = ({children, .
     <div className={`flex items-center`}> 
         
 
-        {isMobile || isTablet 
-          ? <hr className={styles["divisor-line"]}/> 
-          : <hr className={styles["divisor-line"]}/>
-        }
+        <hr className={styles["divisor-line"]}/> 
         
         <label htmlFor="button" className={styles["label-button"]}>
             <svg className={styles.svg} xmlns="http://www.w3.org/2000/svg" width="50" height="100" viewBox="0 0 46 44">

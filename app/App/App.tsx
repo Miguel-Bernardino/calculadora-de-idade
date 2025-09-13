@@ -13,42 +13,47 @@ function App() {
   const isMobile = useMediaQuery({ maxWidth: 767 }); 
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); 
 
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  const formContainerRef = useRef<HTMLDivElement | null>(null);
 
+  // Parte para pegar o tamanho inteiro da tela do usuario
   const [windowSize, setWindowSize] = useState({
     width: 0,
     height: 0,
-  });
-
-  const [containerHeight, setContainerHeight] = useState(0);
-
+  }); 
+  
   useEffect(() => {
-    // Só roda no cliente
-    if (typeof window !== "undefined") {
+    const updateScreenSize = () => {
       setWindowSize({
         width: window.innerWidth,
         height: window.innerHeight,
       });
+    };
 
-      const handleResize = () => {
-        setWindowSize({
-          width: window.innerWidth,
-          height: window.innerHeight,
-        });
-      };
+    window.addEventListener('resize', updateScreenSize);
 
-      window.addEventListener("resize", handleResize);
+    // Limpeza do listener ao desmontar
+    return () => {
+      window.removeEventListener('resize', updateScreenSize);
+    };
+  }, [])
+  
+  //tamanho da div que contem o formulario
+  const [formContainerSize, setFormContainerSize] = useState({
+    width: 0,
+    height: 0,
+  });
 
-      return () => window.removeEventListener("resize", handleResize);
+  useEffect(() => {
+    if (formContainerRef.current) {
+      const { offsetWidth, offsetHeight } = formContainerRef.current;
+      setFormContainerSize({ width: offsetWidth, height: offsetHeight });
     }
   }, []);
 
-  useEffect(() => {
-    if (containerRef.current) {
-      setContainerHeight(containerRef.current.offsetHeight);
-    }
-  }, [windowSize]); // recalcula quando a tela mudar
-
+  /*
+    proporcao para saber quanto maior a largura e em relacao a altura, 
+    usado para saber quando a proporcao do landscape deve ser usada
+  */
   const aspectRatio = windowSize.width / windowSize.height;
 
   const [daysOld, setDaysOld] = useState<number | undefined>();
@@ -66,13 +71,15 @@ function App() {
 
   };
 
+  let hasValidLandscape: boolean = isLandScape && aspectRatio > 1.3;
+
   return (
 
     <div id={styles.main} className='w-screen h-screen flex justify-center items-center '
       style={{
-        height: isLandScape && (isMobile || isTablet) && aspectRatio > 1.3 ? `calc(${containerHeight}px + 30px)` : "100vh",
+        height: hasValidLandscape && (isMobile) ? `calc(${formContainerSize.height}px - 10vh)` : hasValidLandscape && isTablet ? `calc(${formContainerSize.height}px + 20vh)` : "100vh",
       }}>
-      <div id={styles["container"]} className='bg-contain rounded-[4%] rounded-br-[30%] bg-white shadow-xl'>
+      <div ref={formContainerRef} id={styles["container"]} className='bg-contain rounded-[4%] rounded-br-[30%] bg-white shadow-xl'>
         
         <Form onSubmit={handleFormSubmit}/>
 

@@ -1,15 +1,18 @@
+
 .footer{
 
-  display: inline;
+  display: block;
   flex-direction: column;
+
+  padding-top: 0.75rem;
+
 }
 
 #container {
 
   padding: 3vw;
-}
 
-#main{}
+}
 
 @media (max-width: 767px) {
 
@@ -27,6 +30,7 @@
 
   #container {
 
+    padding: 5vw;
     margin: 4vw 0;
 
   }    
