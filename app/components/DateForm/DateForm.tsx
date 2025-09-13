@@ -6,7 +6,7 @@ import  type { FormInput, IFormProps } from '../DateForm/DateForm_types';
 import DateTextInput from '../DateTextInput/DateTextInput' 
 import SubimitDateButton from '../SubimitDateButton/SubimitDateButton'
 import styles from '../../styles/DateForm/DateForm.module.css'
-import isValidDate  from '../../lib/Date'
+import {isValidDate}  from '../../lib/Date'
 
 const DateForm: React.FC<IFormProps> = ({ onSubmit }) => {
 

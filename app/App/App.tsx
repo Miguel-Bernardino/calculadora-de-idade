@@ -5,7 +5,7 @@ import DateText from '../components/DateText/DateText'
 import styles from './App.module.css'
 import { useMediaQuery } from "react-responsive";
 
-import getAge from '~/lib/Date'
+import {getAge} from '~/lib/Date'
 
 function App() {
 

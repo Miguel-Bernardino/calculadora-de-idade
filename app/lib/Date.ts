@@ -1,6 +1,6 @@
 import type { FormInput } from '../components/DateForm/DateForm_types'
 
-export default function getAge( bornDate : FormInput ) : FormInput {
+export function getAge( bornDate : FormInput ) : FormInput {
 
     const date = new Date();
 
