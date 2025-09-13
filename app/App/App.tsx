@@ -77,7 +77,7 @@ function App() {
 
     <div id={styles.main} className='w-screen h-screen flex justify-center items-center'
       style={{
-        height: hasValidLandscape && (isMobile) ? `calc(${formContainerSize.height}px)` : hasValidLandscape && isTablet ? `calc(${formContainerSize.height}px)` : "100vh",
+        height: hasValidLandscape && (isMobile) ? `calc(${formContainerSize.height}px + 20vh)` : hasValidLandscape && isTablet ? `calc(${formContainerSize.height}px + 40vh)` : "100vh",
       }}>
       <div ref={formContainerRef} id={styles["container"]} className='bg-contain rounded-[4%] rounded-br-[30%] bg-white shadow-xl'>
         
