@@ -6,8 +6,6 @@ type SubimitDateButtonProps = {
     children?: React.ReactNode; 
 } & React.ComponentProps<'input'>;
 
-console.log(styles);
-
 const SubimitDateButtonDesktop: React.FC<SubimitDateButtonProps> = ({children, ...props }) => {
   
   const isMobile = useMediaQuery({ maxWidth: 767 }); 
