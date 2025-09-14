@@ -6,16 +6,7 @@ import  type { FormInput, IFormProps } from '../DateForm/DateForm_types';
 import DateTextInput from '../DateTextInput/DateTextInput' 
 import SubimitDateButton from '../SubimitDateButton/SubimitDateButton'
 import styles from '../../styles/DateForm/DateForm.module.css'
-
-function isLeapYear(year: number): boolean {
-    return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
-}
-
-function isValidDate(year: number, month: number, day: number): boolean {
-    
-    const daysInMonth = [31, isLeapYear(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-    return day > 0 && day <= daysInMonth[month -1];
-}
+import { isValidDay, isValidMonth } from "~/lib/Date";
 
 const DateForm: React.FC<IFormProps> = ({ onSubmit }) => {
 
@@ -25,11 +16,81 @@ const DateForm: React.FC<IFormProps> = ({ onSubmit }) => {
         getValues,
         formState: { errors },
     } = useForm<FormInput>();
-    
+        
+
     const submitHandler: SubmitHandler<FormInput> = (data) => {
+        /*
+            type: string;
+        */
         onSubmit(data);
     };
     
+    /*
+    
+        let yearPattern = {
+            event: { 
+                min: new Date().getFullYear(),
+                max: Infinity,
+            },
+            birthday: { 
+                min: 1908, 
+                max: new Date().getFullYear(),
+            }
+        }
+
+        let monthPattern = {
+            event: {
+                min: 1, 
+                max: 12,
+                validate: (value) => {
+                    const [year, month, day] = [ Number(getValues("year")), value, Number(getValues("day"))];
+                    if (!isValidMonthForMonth) {
+                        return "Invalid Day";
+                    }
+                    return true;
+                }
+            }
+            birthday: {
+                min: 1, 
+                max: 12,
+                validate: (value) => {
+                    const [year, month, day] = [ Number(getValues("year")), value, Number(getValues("day"))];
+                    if (!isValidMonthForBirthday) {
+                        return "Invalid Day";
+                    }
+                    return true;
+                }
+            }
+        }
+
+        let dayPattern = {
+            
+            event: {
+                min: 1, 
+                max: 31,
+                validate: (value) => {
+                    const [year, month, day] = [ Number(getValues("year")), Number(getValues("month")), value];
+                    if (!isValidDayForEvent(year, month, day)) 
+                        return "Invalid Day";
+                    return true;
+                }         
+            }
+
+            birthday: { 
+                min: 1, 
+                max: 31,
+                validate: (value) => {
+                    const [year, month, day] = [ Number(getValues("year")), Number(getValues("month")), value];
+                    if (!isValidDayForBirthday(year, month, day)) 
+                        return "Invalid Day";
+                    return true;
+                }      
+            }
+
+        
+        }
+
+    */
 
     return (
 
@@ -44,18 +105,27 @@ const DateForm: React.FC<IFormProps> = ({ onSubmit }) => {
                         max: { value: 31, message: "Invalid Day" },
                         validate: (value) => {
                             const [year, month, day] = [ Number(getValues("year")), Number(getValues("month")), value];
-                            if (!isValidDate(year, month, day)) 
+                            
+                            if (!isValidDay(year, month, day)) 
                                 return "Invalid Day";
+                            
                             return true;
+                            //return dayPattern[type].validate(value);
                         }
                     })} 
-                    errTxt={errors.day?.message} gap="0.5vw" placeholder="DD"> DAY </DateTextInput>
+                    errTxt={errors.day?.message} gap="0.5vw" placeholder="DD"> DAY </DateTextInput>   
                     
                     <DateTextInput {...register("month",{
                         required: "This field is required",
                         pattern: { value: /^[0-9]+$/, message: "Only Numbers" },
                         min: { value: 1, message: "Invalid Month" },
                         max: { value: 12, message: "Invalid Month" },
+                        validate: (value) => {
+                            const [year, month, day] = [ Number(getValues("year")), value, Number(getValues("day"))];
+                            if (!isValidMonth(year, month)) 
+                                return "Invalid Month";                            
+                            return true;
+                        }
                     })} 
                     errTxt={errors.month?.message} gap="0.5vw" placeholder="MM"> MONTH </DateTextInput>
                     

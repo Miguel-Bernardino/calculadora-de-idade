@@ -6,6 +6,19 @@ import styles from './App.module.css'
 
 import {getAge} from '~/lib/Date'
 
+/* 
+  import {
+    isRouteErrorResponse,
+    Links,
+    Meta,
+    Outlet,
+    Scripts,
+    ScrollRestoration,
+    useNavigate,
+  } from "react-router";
+
+*/
+
 function App() {
 
   const [daysOld, setDaysOld] = useState<number | undefined>();
@@ -19,6 +32,16 @@ function App() {
     setDaysOld(age.day);
     setMonthsOld(age.month);
     setYearOld(age.year);
+
+    /*
+    
+    setTimeout(() => {
+    
+      navigate("/event");
+    
+    }, 20000);
+    
+    */
 
   };
 
