@@ -10,7 +10,7 @@
 
 #container {
   
-  padding: clamp(1vw, 5vw, 10vw);
+  padding: clamp(5vh, 8vw,10vh);
 
 }
 
@@ -18,7 +18,7 @@
 
   #container {
 
-    padding: 6vh 5vw;
+    padding: 4vh clamp(1vh, 5vw, 10vh);
      
 
   }  

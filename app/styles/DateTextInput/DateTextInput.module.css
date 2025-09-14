@@ -69,7 +69,7 @@
 }
 
 /* Medium devices (tablets) */
-@media (min-width: 600px) and (max-width: 1023px) {
+@media (min-width: 600px) and (max-width: 1024px) {
 
     .input-text{
 
@@ -87,7 +87,10 @@
     .label {
 
         font-size: 1.6vw;
-    
+    }
+
+    .error-msg{
+        margin-bottom: 2vh;
     }
 
 }
