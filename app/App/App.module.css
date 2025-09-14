@@ -9,7 +9,7 @@
 }
 
 #container {
-
+  
   padding: clamp(1vw, 5vw, 10vw);
 
 }
@@ -19,20 +19,19 @@
   #container {
 
     padding: 6vh 5vw;
-
-    margin: 0 10vw;
+     
 
   }  
 
 }
 
-@media ((max-width: 767px) and (orientation: landscape)) {
+@media ((max-width: 1023px) and (orientation: landscape)) {
 
   #container {
 
-    padding: 12vh 3vw;
+    padding: auto 3vw;
 
-    margin: 4vw 0;
+    margin: 10vh 0;
 
   }    
 

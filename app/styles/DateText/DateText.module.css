@@ -1,7 +1,7 @@
 
 .text-container{
 
-    height: clamp(1vh, 12vh, 50vh);
+    height: clamp(5vh, 12vh, 50vh);
     user-select: none;
 
 }
@@ -17,14 +17,14 @@
 
     .text-container{
 
-        height: clamp(6vh, 11vw, 50vh);
+        height: clamp(1vh, 14vw, 50vh);
     
     }
 
 
     .text{
 
-        font-size: clamp(5.5vh, 12vw, 100vh);
+        font-size: clamp(1vh, 12vw, 100vh);
 
     }
 
@@ -33,7 +33,7 @@
 @media (orientation: portrait ) and (min-width: 768px) and (max-width: 1023px){
     .text-container{
 
-        height: clamp(7vh, 12vw, 50vh);
+        height: clamp(1vh, 14vw, 50vh);
     }
 
     .text {
@@ -46,7 +46,7 @@
 @media (orientation: landscape ) and (max-width: 1023px){
     .text-container{
 
-        height: clamp(12vh, 12vw, 50vh);
+        height: clamp(1vh, 14vw, 50vh);
     }
 
     .text {
