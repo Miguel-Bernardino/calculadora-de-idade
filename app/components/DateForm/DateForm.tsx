@@ -19,9 +19,6 @@ const DateForm: React.FC<IFormProps> = ({ onSubmit }) => {
         
 
     const submitHandler: SubmitHandler<FormInput> = (data) => {
-        /*
-            type: string;
-        */
         onSubmit(data);
     };
     
@@ -33,7 +30,7 @@ const DateForm: React.FC<IFormProps> = ({ onSubmit }) => {
                 max: Infinity,
             },
             birthday: { 
-                min: 1908, 
+                min: 1908, //pessoa mais velha do mundo
                 max: new Date().getFullYear(),
             }
         }
@@ -44,8 +41,8 @@ const DateForm: React.FC<IFormProps> = ({ onSubmit }) => {
                 max: 12,
                 validate: (value) => {
                     const [year, month, day] = [ Number(getValues("year")), value, Number(getValues("day"))];
-                    if (!isValidMonthForMonth) {
-                        return "Invalid Day";
+                    if (!isValidMonthForEvent) {
+                        return "Invalid Month";
                     }
                     return true;
                 }
@@ -56,7 +53,7 @@ const DateForm: React.FC<IFormProps> = ({ onSubmit }) => {
                 validate: (value) => {
                     const [year, month, day] = [ Number(getValues("year")), value, Number(getValues("day"))];
                     if (!isValidMonthForBirthday) {
-                        return "Invalid Day";
+                        return "Invalid Month";
                     }
                     return true;
                 }

@@ -10,13 +10,10 @@ type DateTextInputProps = {
 
 const DateTextInput: React.FC<DateTextInputProps> = ({ errTxt = "", children, gap, ...props }) => {
 
-  const isMobile = useMediaQuery({ maxWidth: 767 }); 
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 }); 
-
   const [err, setErr] = useState<boolean>(false);
 
   useEffect(() => {
-    setErr(errTxt !== "");
+    setErr(errTxt.trim() !== "");
   }, [errTxt]);
 
   return (

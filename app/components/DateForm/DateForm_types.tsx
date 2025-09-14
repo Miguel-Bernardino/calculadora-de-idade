@@ -7,6 +7,9 @@ export type FormInput = {
 };
 
 export interface IFormProps {
+    /*
+        type: string;
+    */
     onSubmit: (data: FormInput) => void;
 }
 
